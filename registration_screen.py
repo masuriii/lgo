@@ -4,9 +4,9 @@ import requests
 class RegistrationScreen(ctk.CTkFrame):
     def __init__(self, master, on_back_click):
         super().__init__(master)
-
+        self.master = master
         self.on_back_click = on_back_click
-
+        self.master.title("Регистрация")
         # Заголовок
         label = ctk.CTkLabel(self, text="Регистрация", font=ctk.CTkFont(size=20, weight="bold"))
         label.pack(pady=12, padx=10)

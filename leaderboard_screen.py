@@ -25,6 +25,7 @@ class LeaderboardScreen(ctk.CTkFrame):
             if response.status_code == 200:
                 r_json = response.json()  # Данные о лидерах
                 leaders = r_json.get("results", [])
+                leaders.sort(key=lambda l: l["win_rate"], reverse=True)
                 self.populate_leaderboard(scrollable_frame, leaders)
             else:
                 error_message = response.json().get("message", "Ошибка при получении данных")
@@ -44,7 +45,7 @@ class LeaderboardScreen(ctk.CTkFrame):
             nickname = leader.get("nickname", "Аноним")  # Никнейм игрока
             wins = leader.get("wins", 0)  # Количество побед
             losses = leader.get("losses", 0)  # Количество поражений
-            winrate = leader.get("winrate", 0)  # Винрейт
+            winrate = leader.get("win_rate", 0)  # Винрейт
 
             # Создаем фрейм для каждого игрока
             player_frame = ctk.CTkFrame(frame, border_width=1, border_color="gray")

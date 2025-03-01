@@ -20,7 +20,7 @@ class GameScreen(ctk.CTkFrame):
         self.computer_score = 0
         self.player_score = 0
 
-        self.model = None  # Модель компьютерного зрения
+        self.model = None
         self.player_prediction_label = None  # Метка для вывода предсказания
         self.left_frame = None
         self.right_frame = None
@@ -333,7 +333,7 @@ class GameScreen(ctk.CTkFrame):
         self.load_model()
         self.start_button.configure(text="Сделать ход", command=self.make_move, fg_color="green",  # Зеленый цвет кнопки
         hover_color="#006400")
-        self.bind("<space>", lambda event: self.make_move())
+        self.master.bind("<space>", lambda event: self.make_move())
 
     def modify_main_window(self):
         for widget in self.winfo_children():
