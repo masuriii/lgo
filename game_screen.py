@@ -165,7 +165,7 @@ class GameScreen(ctk.CTkFrame):
             "Добро пожаловать в игру!\n\n"
             "1. Подготовьте свою камеру.\n"
             "2. Когда будете готовы, нажмите 'Начать игру'.\n"
-            "3. Следуйте указаниям на экране.\n\n"
+            "3. Показывайте в прямоугольник на камере жест и нажимайте \"Сделать ход\" или пробел\n\n"
             "Удачи!"
         )
         instruction_label = ctk.CTkLabel(instruction_window, text=instruction_text, font=ctk.CTkFont(size=14))
